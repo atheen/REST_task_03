@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.tokens import RefreshToken
 
 from .models import Flight, Booking
 
@@ -13,6 +14,11 @@ class BookingSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Booking
 		fields = ['flight', 'date', 'id']
+
+class BookingCreateSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Booking
+		fields = "__all__"
 
 
 class BookingDetailsSerializer(serializers.ModelSerializer):
